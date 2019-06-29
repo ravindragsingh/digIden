@@ -1,0 +1,16 @@
+.center{
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  }
+  .lineBreak {
+  content: "\A";
+    white-space: pre;
+  }
+
+.centerPage {
+  margin: auto;
+  width: 100%;
+  padding: 100px;
+    position: absolute;
+}
