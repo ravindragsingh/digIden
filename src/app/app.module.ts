@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterNowComponent } from './register-now/register-now.component';
 import { StartPageComponent } from './start-page/start-page.component';
+import { ReqVidComponent } from './req-vid/req-vid.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { StartPageComponent } from './start-page/start-page.component';
     AppComponent,
     LoginComponent,
     RegisterNowComponent,
-    StartPageComponent
+    StartPageComponent,
+    ReqVidComponent
   ],
   imports: [
     BrowserModule,
