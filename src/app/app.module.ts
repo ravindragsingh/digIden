@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterNowComponent } from './register-now/register-now.component';
 import { StartPageComponent } from './start-page/start-page.component';
 import { ReqVidComponent } from './req-vid/req-vid.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -21,7 +23,10 @@ import { ReqVidComponent } from './req-vid/req-vid.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
+  
+    
       ],
   providers: [],
   bootstrap: [AppComponent]
