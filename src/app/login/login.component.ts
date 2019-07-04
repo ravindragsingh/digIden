@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit{
    { id:1, name: "City Council"}
    ]
 
-constructor (private http: HttpClient){
+constructor (private http: HttpClient, private route : Router){
 
 }
 
@@ -27,6 +28,9 @@ ngOnInit() {
 login() {
   console.log(this.userName1);
   let loginDetails = this.http.get('https://vendor-identity.mybluemix.net/get-vendorInfo?vendorId=' + this.userName1);
-  loginDetails.subscribe((response) => console.log(response));
+  loginDetails.subscribe((response) => console.log(response.status));
+  //sending the control to user component upon success in login
+  this.route.navigate(['/user']);
+ 
 }
 }
