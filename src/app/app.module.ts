@@ -9,6 +9,9 @@ import { RegisterNowComponent } from './register-now/register-now.component';
 import { StartPageComponent } from './start-page/start-page.component';
 import { ReqVidComponent } from './req-vid/req-vid.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VerificationComponent } from './req-vid/verification/verification.component';
+import { InspectionComponent } from './req-vid/inspection/inspection.component';
+import { TrustScoreComponent } from './req-vid/trust-score/trust-score.component';
 
 
 
@@ -18,7 +21,10 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterNowComponent,
     StartPageComponent,
-    ReqVidComponent
+    ReqVidComponent,
+    VerificationComponent,
+    InspectionComponent,
+    TrustScoreComponent
   ],
   imports: [
     BrowserModule,
