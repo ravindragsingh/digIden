@@ -12,6 +12,9 @@ export class ReqVidComponent implements OnInit {
 
   userId : string;
   private sub: any; 
+  email: string;
+  response: any;
+ 
   // example:string;
   // constructor(private router: Router) {
   //   const navigation = this.router.getCurrentNavigation();
@@ -20,21 +23,31 @@ export class ReqVidComponent implements OnInit {
   //   console.log(this.example);
   //  }
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {} 
+  
+  constructor(private route: ActivatedRoute, private http: HttpClient) {
+    
+  } 
+
+
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.userId= params['userId']; 
       
-      console.log(this.userId + " Hi");
+      console.log(this.userId + " from Req Component");
       let loginDetails = this.http.get('https://vendor-identity.mybluemix.net/get-vendorInfo?vendorId=' + this.userId);
-      loginDetails.subscribe((response) => console.log(response.data.msg.Email));
-     
+      loginDetails.subscribe((response) => console.log(response));
+
+      // this.email = this.response.data.msg.Email;
       });
+  }
 
-  
-      
-
+  requestVid() {
+    
+    let requestVidCall = this.http.get('https://vendor-identity.mybluemix.net/request-digital-identity?vendorId=vendor1&councilId=council1');
+    
+    requestVidCall.subscribe((responseVid) => console.log(responseVid));
+       
   }
 
 }

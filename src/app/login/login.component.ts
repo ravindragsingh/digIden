@@ -29,7 +29,9 @@ ngOnInit() {
 login() {
   //console.log(this.userName1);
   let loginDetails = this.http.get('https://vendor-identity.mybluemix.net/get-vendorInfo?vendorId=' + this.userName1);
-  loginDetails.subscribe((response) => console.log(response));
+  // loginDetails.subscribe((response) => console.log(response));
+  loginDetails.subscribe((response) => console.log("response"));
+  
   
   // to get the email - loginDetails.subscribe((response) => console.log(response.data.msg.Email));
   //sending the control to user component upon success in login
