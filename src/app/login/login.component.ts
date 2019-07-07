@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit{
   userName1 : string = "";
   response: any;
+  userId : string;
 
   roleSelection = [
    { id:1, name: "Vendor"},
@@ -26,11 +27,14 @@ ngOnInit() {
 }
 
 login() {
-  console.log(this.userName1);
+  //console.log(this.userName1);
   let loginDetails = this.http.get('https://vendor-identity.mybluemix.net/get-vendorInfo?vendorId=' + this.userName1);
-  loginDetails.subscribe((response) => console.log(response.status));
+  loginDetails.subscribe((response) => console.log(response));
+  
+  // to get the email - loginDetails.subscribe((response) => console.log(response.data.msg.Email));
   //sending the control to user component upon success in login
-  this.route.navigate(['/user']);
+ // const navigationExtras: NavigationExtras = {state: {example: "this.userName1"}};
+  this.route.navigate(['/user', { userId :this.userName1}]);
  
 }
 }
