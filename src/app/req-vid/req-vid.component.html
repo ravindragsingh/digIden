@@ -4,6 +4,7 @@
     <form>
         <div class="form-group">
 
+
             <!-- <input required ngModel name="firstName" id="firstName" type="text" placeholder="First Name" #userName="ngModel" class="form-control">
             <input required ngModel name="lastName" id="lastName" type="text" placeholder="Last Name" #userName="ngModel" class="form-control">
             <input required ngModel name="dob" id="dob" type="date" placeholder="Date of Birth(mm/dd/yyyy)" #userName="ngModel" class="form-control">
@@ -15,9 +16,21 @@
         </div>
         <div>
             <button (click)="requestVid()" class="btn btn-primary form-control btnMargin">Request Your VID</button>
-            <div *ngIf="responseVid ">
-                <h2>Request Submitted</h2>
-                <!-- <h2>{{responseVid.data.msg}}</h2> -->
+            <div *ngIf="onClickResponseVid">
+                <!-- <h2>Request Submitted</h2> -->
+                <ol>
+                    <li>FirstName : {{loginDetails.data.msg.FirstName}}</li>
+                    <li>Last Name : {{loginDetails.data.msg.LastName}}</li>
+                    <li>Email : {{loginDetails.data.msg.Email}}</li>
+                    <li>License Number : {{loginDetails.data.msg.LicenseNumber}}</li>
+                    <li>Vendor Identity : {{loginDetails.data.msg.VendorIdentity}}</li>
+                    <li>Street: {{loginDetails.data.msg.Street}}</li>
+
+                    <li>Zip Code : {{loginDetails.data.msg.ZipCode}}</li>
+
+
+                </ol>
+                <h3>{{onClickResponseVid.data.msg}}</h3>
                 <!-- RENDERING THE BUTTONS AFTER SUCCESS IN THE THE REPONSE -->
                 <div>
                     <hr>
@@ -25,9 +38,11 @@
 
                     <button class="btn btn-outline-info">Inspection</button>
 
-                    <button class="btn btn-outline-success">Trust Score</button>
+                    <button class="btn btn-outline-success">Trust Score</button> {{responseVid.data.msg.Email}}
+
                 </div>
             </div>
+
 
             <br/>
             <br/>
