@@ -34,11 +34,14 @@
                 <!-- RENDERING THE BUTTONS AFTER SUCCESS IN THE THE REPONSE -->
                 <div>
                     <hr>
-                    <button class="btn btn-outline-primary">Verification</button>
+                    <a routerLink="/user/verification"><button class="btn btn-outline-primary">Verification</button></a>
+                    <!-- <button class="btn btn-outline-primary">Verification</button> -->
 
-                    <button class="btn btn-outline-info">Inspection</button>
+                    <!-- <button class="btn btn-outline-info">Inspection</button> -->
+                    <a routerLink="/user/inspection"><button class="btn btn-outline-info">Inspection</button></a>
 
-                    <button class="btn btn-outline-success">Trust Score</button> {{responseVid.data.msg.Email}}
+                    <!-- <button class="btn btn-outline-success">Trust Score</button>  -->
+                    <a routerLink="/user/trustscore"><button class="btn btn-outline-success">Trust Score</button> </a> {{responseVid.data.msg.Email}}
 
                 </div>
             </div>
