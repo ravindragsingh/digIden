@@ -5,22 +5,11 @@
             <input required [(ngModel)]="userName1" name="userName" id="userName" type="text" placeholder="Username" #userName="ngModel" class="form-control">
             <label for="password">Password</label>
             <input required ngModel name="password" id="password" type="text" placeholder="Password" #password="ngModel" class="form-control">
-
         </div>
-        <!-- <div class="form-group">
-            <label for="roleSelection">Select the role</label>
-            <select ngModel name="roleSelection" id="roleSelection" class="form-control">
-        <option *ngFor = "let role of roleSelection" [value] = "role.id"> {{role.name}}</option>
-      </select>
-        </div> -->
         <div>
-
-            <!-- <a routerLink="/user"><button (click) = "login()" class="btn btn-primary btnMargin">Login</button></a> -->
             <button (click)="login()" class="btn btn-primary btnMargin">Login</button>
 
             <a routerLink="/register"><button class="btn btn-primary float-right btnMargin">Register Now</button> </a>
         </div>
-        <!-- <h2>{{response.status}}</h2> -->
-
     </form>
 </div>

@@ -19,15 +19,6 @@ export class ReqVidComponent implements OnInit {
   responseVid : any;
   onClickResponseVid : any;
 
- 
-  // example:string;
-  // constructor(private router: Router) {
-  //   const navigation = this.router.getCurrentNavigation();
-  //   const state = navigation.extras.state as {example: string};
-  //   this.example = state.example;
-  //   console.log(this.example);
-  //  }
-
   
   constructor(private route: ActivatedRoute, private http: HttpClient) {
     
