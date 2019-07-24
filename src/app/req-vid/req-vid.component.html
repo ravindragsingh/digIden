@@ -3,13 +3,10 @@
 
     <form>
         <div class="form-group">
-
-
-
         </div>
-        <div>
-            <button (click)="requestVid()" class="btn btn-primary form-control btnMargin">Request Your VID</button>
-            <div *ngIf="onClickResponseVid">
+        <div *ngIf="loginDetails.data.msg.VendorStatus == 'verified'">
+            <!-- <button (click)="requestVid()" class="btn btn-primary form-control btnMargin">Request Your VID</button> -->
+            <div *ngIf="loginDetails">
                 <!-- <h2>Request Submitted</h2> -->
                 <ol>
                     <li>FirstName : {{loginDetails.data.msg.FirstName}}</li>
@@ -18,33 +15,49 @@
                     <li>License Number : {{loginDetails.data.msg.LicenseNumber}}</li>
                     <li>Vendor Identity : {{loginDetails.data.msg.VendorIdentity}}</li>
                     <li>Street: {{loginDetails.data.msg.Street}}</li>
-
                     <li>Zip Code : {{loginDetails.data.msg.ZipCode}}</li>
-
-
+                    <li>Zip Code : {{loginDetails.data.msg.VendorStatus}}</li>
                 </ol>
                 <h3>{{onClickResponseVid.data.msg}}</h3>
                 <!-- RENDERING THE BUTTONS AFTER SUCCESS IN THE THE REPONSE -->
                 <div>
                     <hr>
                     <a routerLink="/user/verification"><button class="btn btn-outline-primary">Verification</button></a>
-                    <!-- <button class="btn btn-outline-primary">Verification</button> -->
-
-                    <!-- <button class="btn btn-outline-info">Inspection</button> -->
                     <a routerLink="/user/inspection"><button class="btn btn-outline-info">Inspection</button></a>
-
-                    <!-- <button class="btn btn-outline-success">Trust Score</button>  -->
                     <a routerLink="/user/trustscore"><button class="btn btn-outline-success">Trust Score</button> </a> {{responseVid.data.msg.Email}}
-
                 </div>
             </div>
-
-
             <br/>
             <br/>
 
-            <a routerLink=""><button class="btn btn-success btnMargin ">Logout</button> </a>
+        </div>
+        <div *ngIf="loginDetails.data.msg.VendorStatus != 'verified'">
+
+            <div *ngIf="loginDetails">
+                <!-- <h2>Request Submitted</h2> -->
+                <input required ngModel name="firstName" id="firstName" type="text" placeholder="First Name" #userName="ngModel" class="form-control">
+                <input required ngModel name="lastName" id="lastName" type="text" placeholder="Last Name" #userName="ngModel" class="form-control">
+                <input required ngModel name="dob" id="dob" type="date" placeholder="Date of Birth(mm/dd/yyyy)" #userName="ngModel" class="form-control">
+                <input required ngModel name="email" id="email" type="text" placeholder="Email" #userName="ngModel" class="form-control">
+                <input required ngModel name="license" id="license" type="text" placeholder="License" #userName="ngModel" class="form-control">
+                <input required ngModel name="street" id="street" type="text" placeholder="Streen of Operation" #userName="ngModel" class="form-control">
+                <input required ngModel name="zipCode" id="zipCode" type="text" placeholder="Zip Code" #userName="ngModel" class="form-control">
+                <button (click)="requestVid()" class="btn btn-primary form-control btnMargin">Request Your VID</button>
+                <h3>{{onClickResponseVid.data.msg}}</h3>
+                <!-- RENDERING THE BUTTONS AFTER SUCCESS IN THE THE REPONSE -->
+                <!-- <div>
+                    <hr>
+                    <a routerLink="/user/verification"><button class="btn btn-outline-primary">Verification</button></a>
+                    <a routerLink="/user/inspection"><button class="btn btn-outline-info">Inspection</button></a>
+                    <a routerLink="/user/trustscore"><button class="btn btn-outline-success">Trust Score</button> </a> {{responseVid.data.msg.Email}}
+                </div> -->
+            </div>
+            <br/>
+            <br/>
+
         </div>
 
+
     </form>
+    <a routerLink=""><button class="btn btn-success btnMargin ">Logout</button> </a>
 </div>

@@ -18,40 +18,48 @@ export class ReqVidComponent implements OnInit {
   loginDetails: any;
   responseVid : any;
   onClickResponseVid : any;
-
-  
+  data: any;
+ 
   constructor(private route: ActivatedRoute, private http: HttpClient) {
-    
+   
   } 
-
-
-
   ngOnInit() {
+    //receving the userID
     this.sub = this.route.params.subscribe(params => {
       this.userId= params['userId']; 
       
       console.log(this.userId + " from Req Component");
             });
-      let requestVidCall = this.http.get('https://vendor-identity.mybluemix.net/request-digital-identity?vendorId=vendor1&councilId=council1');
+    //API call for Digital ID requested
+      let requestVidCall = this.http.get('https://vendor-identity.mybluemix.net/request-digital-identity?vendorId=' + this.userId + 'vendor1&councilId=council1');
     
     requestVidCall.subscribe(
       (retVal) => {
         this.responseVid = retVal;
-        console.log(retVal)
+        //console.log(retVal)
       }
      );
+
+    //API call to get the data 
     let loginDetails = this.http.get('https://vendor-identity.mybluemix.net/get-vendorInfo?vendorId=' + this.userId);
-    loginDetails.subscribe((response) => console.log(response));
+    loginDetails.subscribe(
+      
+      (logDet) => {
+        this.loginDetails = logDet;
+        //console.log(logDet);
+      }
+      );
   }
 
   requestVid() {
     
-    let requestVidCall = this.http.get('https://vendor-identity.mybluemix.net/request-digital-identity?vendorId=vendor1&councilId=council1');
+    let requestVidCall = this.http.get('https://vendor-identity.mybluemix.net/request-digital-identity?vendorId=' + this.userId + 'vendor1&councilId=council1');
     
     requestVidCall.subscribe(
         (retVal) => {
-          console.log(retVal)   
+          //console.log(retVal)   
           this.onClickResponseVid = retVal;
+          console.log(this.onClickResponseVid.data.msg);
         }
       );
 
@@ -61,6 +69,7 @@ export class ReqVidComponent implements OnInit {
         (logDet) => {
           console.log(logDet)   
           this.loginDetails = logDet;
+          console.log(this.loginDetails.data.msg.VendorStatus)
         }
       );
     // let loginDetails = this.http.get('https://vendor-identity.mybluemix.net/get-vendorInfo?vendorId=' + this.userId);
