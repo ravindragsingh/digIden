@@ -21,7 +21,7 @@ export class LoginCouncilComponent implements OnInit {
       loginCouncil() {
         //console.log(this.userName1);
         let loginDetails = this.http.get('https://vendor-identity.mybluemix.net/get-identity-request?councilId=' + this.userName1Council);
-         loginDetails.subscribe((responseCouncil) => console.log("responseCouncil"));
+         loginDetails.subscribe((responseCouncil) => console.log(responseCouncil));
        
         //sending the control to user component upon success in login
        
