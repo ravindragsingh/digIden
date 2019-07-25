@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { VerificationComponent } from './req-vid/verification/verification.component';
 import { InspectionComponent } from './req-vid/inspection/inspection.component';
 import { TrustScoreComponent } from './req-vid/trust-score/trust-score.component';
+import { LoginCouncilComponent } from './login-council/login-council.component';
 
 
 
@@ -24,7 +25,8 @@ import { TrustScoreComponent } from './req-vid/trust-score/trust-score.component
     ReqVidComponent,
     VerificationComponent,
     InspectionComponent,
-    TrustScoreComponent
+    TrustScoreComponent,
+    LoginCouncilComponent
   ],
   imports: [
     BrowserModule,

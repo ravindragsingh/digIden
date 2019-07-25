@@ -7,6 +7,7 @@ import { ReqVidComponent } from './req-vid/req-vid.component';
 import { VerificationComponent } from './req-vid/verification/verification.component';
 import { InspectionComponent } from './req-vid/inspection/inspection.component';
 import { TrustScoreComponent } from './req-vid/trust-score/trust-score.component';
+import { LoginCouncilComponent } from './login-council/login-council.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
 {path:'user', component:ReqVidComponent},
 {path:'user/verification', component:VerificationComponent},
 {path:'user/inspection', component:InspectionComponent},
-{path:'user/trustscore', component:TrustScoreComponent}
+{path:'user/trustscore', component:TrustScoreComponent},
+{path:'logCouncil', component:LoginCouncilComponent}
 
 ];
 
