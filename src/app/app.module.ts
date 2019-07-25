@@ -13,6 +13,7 @@ import { VerificationComponent } from './req-vid/verification/verification.compo
 import { InspectionComponent } from './req-vid/inspection/inspection.component';
 import { TrustScoreComponent } from './req-vid/trust-score/trust-score.component';
 import { LoginCouncilComponent } from './login-council/login-council.component';
+import { CouncilLandingPageComponent } from './council-landing-page/council-landing-page.component';
 
 
 
@@ -26,7 +27,8 @@ import { LoginCouncilComponent } from './login-council/login-council.component';
     VerificationComponent,
     InspectionComponent,
     TrustScoreComponent,
-    LoginCouncilComponent
+    LoginCouncilComponent,
+    CouncilLandingPageComponent
   ],
   imports: [
     BrowserModule,

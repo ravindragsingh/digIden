@@ -8,6 +8,7 @@ import { VerificationComponent } from './req-vid/verification/verification.compo
 import { InspectionComponent } from './req-vid/inspection/inspection.component';
 import { TrustScoreComponent } from './req-vid/trust-score/trust-score.component';
 import { LoginCouncilComponent } from './login-council/login-council.component';
+import { CouncilLandingPageComponent } from './council-landing-page/council-landing-page.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
 {path:'user/verification', component:VerificationComponent},
 {path:'user/inspection', component:InspectionComponent},
 {path:'user/trustscore', component:TrustScoreComponent},
-{path:'logCouncil', component:LoginCouncilComponent}
+{path:'logCouncil', component:LoginCouncilComponent},
+{path:'logCouncil/council', component:CouncilLandingPageComponent}
 
 ];
 
