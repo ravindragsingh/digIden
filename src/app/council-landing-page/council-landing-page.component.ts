@@ -14,15 +14,23 @@ private sub : any;
 userIdCouncil : string ;
 councilAllResponse : any;
 CouncilAllResponseSend : any;
+status : string ;
+value1 = "hello data binding";
   
-constructor(private route :ActivatedRoute, private http :HttpClient) { }
+constructor(private route :ActivatedRoute, private http :HttpClient) { 
+  this.sub = this.route.params.subscribe(params => {
+  this.userIdCouncil = params['userIdCouncil'];
+  console.log(this.userIdCouncil + " City Council UserID");
+})
+
+}
 
   ngOnInit() {
     //receiving the suerID
-    this.sub = this.route.params.subscribe(params => {
-      this.userIdCouncil = params['userIdCouncil'];
-      console.log(this.userIdCouncil + " City Council UserID");
-    })
+    // this.sub = this.route.params.subscribe(params => {
+    //   this.userIdCouncil = params['userIdCouncil'];
+    //   console.log(this.userIdCouncil + " City Council UserID");
+    // })
 
     //API call to get the vendors requested for VID verification 
 
@@ -34,6 +42,4 @@ constructor(private route :ActivatedRoute, private http :HttpClient) { }
       }
     );
   }
-
-
 }
