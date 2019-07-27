@@ -16,6 +16,8 @@ councilAllResponse : any;
 CouncilAllResponseSend : any;
 status : string ;
 value1 = "hello data binding";
+councilApproveResponse : any;
+councilApproveSend : any;
   
 constructor(private route :ActivatedRoute, private http :HttpClient) { 
   this.sub = this.route.params.subscribe(params => {
@@ -39,6 +41,24 @@ constructor(private route :ActivatedRoute, private http :HttpClient) {
       (councilAllResponse) => {
         this.CouncilAllResponseSend = councilAllResponse ;
         console.log(councilAllResponse);
+      }
+    );
+  }
+
+  approveReq() {
+    let councilAllRequests = this.http.get(' https://vendor-identity.mybluemix.net/get-identity-request?councilId=' + this.userIdCouncil)
+    councilAllRequests.subscribe(
+      (councilAllResponse) => {
+        this.CouncilAllResponseSend = councilAllResponse ;
+        // console.log(councilAllResponse);
+      }
+    );
+
+    let councilApprove = this.http.get('https://vendor-identity.mybluemix.net/update-vendorInfo?vendorId=vendor1' + '&councilId=' + this.userIdCouncil +'&vendor_status=verified')
+    councilApprove.subscribe(
+      (councilApproveResponse) => {
+        this.councilApproveSend = councilApproveResponse ;
+        console.log(councilApproveResponse);
       }
     );
   }

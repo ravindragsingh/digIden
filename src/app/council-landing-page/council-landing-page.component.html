@@ -1,4 +1,14 @@
-<div>
+<div class="jumbotron">
 
-    <li>{{CouncilAllResponseSend.status}}</li>
+    <h6 class="blockquote-footer"><em>Below is the list of vendors whose ID verification is pending</em> </h6>
+    <br>
+    <h6>Vendor Id : {{CouncilAllResponseSend.data.msg[0].vendorId}}</h6>
+    <h6>Status : {{CouncilAllResponseSend.data.msg[0].vendorStatus}}</h6>
+    <br>
+    <button class="btn btn-primary btnMargin" (click)="approveReq()">Click to Verify</button>
+
+    <br>
+
+
 </div>
+<a routerLink=""><button class="btn btn-success btnMargin ">Logout</button> </a>
