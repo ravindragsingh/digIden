@@ -50,11 +50,11 @@ constructor(private route :ActivatedRoute, private http :HttpClient) {
     councilAllRequests.subscribe(
       (councilAllResponse) => {
         this.CouncilAllResponseSend = councilAllResponse ;
-        // console.log(councilAllResponse);
+        console.log(councilAllResponse.data.msg[0].vendorId);
       }
     );
 
-    let councilApprove = this.http.get('https://vendor-identity.mybluemix.net/update-vendorInfo?vendorId=vendor1' + '&councilId=' + this.userIdCouncil +'&vendor_status=verified')
+    let councilApprove = this.http.get('https://vendor-identity.mybluemix.net/update-vendorInfo?vendorId=' + this.CouncilAllResponseSend.data.msg[0].vendorId + '&councilId=' + this.userIdCouncil +'&vendor_status=verified')
     councilApprove.subscribe(
       (councilApproveResponse) => {
         this.councilApproveSend = councilApproveResponse ;
