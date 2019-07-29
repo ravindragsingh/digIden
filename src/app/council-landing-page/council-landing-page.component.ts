@@ -54,7 +54,7 @@ constructor(private route :ActivatedRoute, private http :HttpClient) {
       }
     );
 
-    let councilApprove = this.http.get('https://vendor-identity.mybluemix.net/update-vendorInfo?vendorId=' + this.CouncilAllResponseSend.data.msg[0].vendorId + '&councilId=' + this.userIdCouncil +'&vendor_status=verified')
+    let councilApprove = this.http.get('https://vendor-identity.mybluemix.net/update-vendorInfo?vendorId=' + this.CouncilAllResponseSend.data.msg[2].vendorId + '&councilId=' + this.userIdCouncil +'&vendor_status=verified')
     councilApprove.subscribe(
       (councilApproveResponse) => {
         this.councilApproveSend = councilApproveResponse ;
