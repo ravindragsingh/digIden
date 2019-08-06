@@ -50,7 +50,7 @@ constructor(private route :ActivatedRoute, private http :HttpClient) {
     councilAllRequests.subscribe(
       (councilAllResponse) => {
         this.CouncilAllResponseSend = councilAllResponse ;
-        console.log(councilAllResponse.data.msg[0].vendorId);
+        //console.log(councilAllResponse.data.msg[0].vendorId);
       }
     );
 
