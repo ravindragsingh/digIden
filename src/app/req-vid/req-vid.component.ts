@@ -31,7 +31,7 @@ export class ReqVidComponent implements OnInit {
       console.log(this.userId + " from Req Component");
             });
     //API call for Digital ID requested
-      let requestVidCall = this.http.get('https://vendor-identity.mybluemix.net/request-digital-identity?vendorId=' + this.userId + 'vendor1&councilId=council1');
+      let requestVidCall = this.http.get('https://vendor-identity.mybluemix.net/request-digital-identity?vendorId=' + this.userId + '&councilId=council1');
     
     requestVidCall.subscribe(
       (retVal) => {
@@ -53,7 +53,7 @@ export class ReqVidComponent implements OnInit {
 
   requestVid() {
     
-    let requestVidCall = this.http.get('https://vendor-identity.mybluemix.net/request-digital-identity?vendorId=' + this.userId + 'vendor1&councilId=council1');
+    let requestVidCall = this.http.get('https://vendor-identity.mybluemix.net/request-digital-identity?vendorId=' + this.userId + '&councilId=council1');
     
     requestVidCall.subscribe(
         (retVal) => {
